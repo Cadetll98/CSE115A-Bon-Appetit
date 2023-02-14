@@ -12,6 +12,7 @@
 
 package com.cookingapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +29,11 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        // check for login info
+        val intent = Intent(this, LoginUI::class.java)
+        startActivity(intent)
 
         setContent {
             CookingAppTheme{    // Main theme for cooking app
