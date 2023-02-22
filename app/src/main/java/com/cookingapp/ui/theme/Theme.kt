@@ -82,7 +82,8 @@ private val LightColorPalette = lightColorScheme(
 
 // Composable for the colorSchemes. Sets requirements to select theme being used
 @Composable
-fun CookingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun CookingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(),
+                    content: @Composable () -> Unit) {
     // sets colors for theme based on Android version. Must meet minimum requirement due to
     // Dynamic coloring being used
     val useDynamicColors = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S

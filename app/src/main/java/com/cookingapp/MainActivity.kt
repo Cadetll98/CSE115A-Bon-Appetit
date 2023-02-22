@@ -14,18 +14,26 @@ package com.cookingapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cookingapp.ui.theme.CookingAppTheme
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import java.sql.Types.NULL
 
 class MainActivity : ComponentActivity() {
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +61,7 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                         },
+
                         // Top bar for home page
                         topBar = {
                             MediumTopAppBar( // Medium size top bar
@@ -63,8 +72,44 @@ class MainActivity : ComponentActivity() {
                                     containerColor = MaterialTheme.colorScheme.surfaceVariant,  // set colors for container
                                     titleContentColor = MaterialTheme.colorScheme.onSurfaceVariant  // set color for text based on theme
                                 )
+
+
+
                             )
+
+                        },
+                        bottomBar = {
+                            BottomAppBar () {
+                                Button(
+                                    onClick = {
+                                        Toast.makeText(baseContext,"You are logout",Toast.LENGTH_SHORT).show()
+                                        val intent = Intent(baseContext, LoginUI::class.java)
+                                        startActivity(intent)
+
+                                    },
+                                    contentPadding = PaddingValues(
+                                        start = 20.dp,
+                                        top = 12.dp,
+                                        end = 20.dp,
+                                        bottom = 12.dp
+                                    )
+                                )
+                                {    // gives a logout button
+                                    Icon(
+                                        Icons.Filled.Close,
+                                        contentDescription = "Favorite",
+                                        modifier = Modifier.size(ButtonDefaults.IconSize),
+
+                                    )
+                                    Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+                                    Text("Logout")
+                                }
+                            }
                         }
+
+
+
+
                     ) { values ->   // set values for scroller
                         LazyColumn (contentPadding = values) {  // lazy column to create scroller down
                             items(10) { // set amount of items in scroller
