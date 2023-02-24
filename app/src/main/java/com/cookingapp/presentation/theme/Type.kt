@@ -2,7 +2,7 @@
 //
 // This file contains the typography(text font) for the UI theme
 
-package com.cookingapp.ui.theme
+package com.cookingapp.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
