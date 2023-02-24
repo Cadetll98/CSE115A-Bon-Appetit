@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
@@ -33,6 +34,8 @@ import com.google.firebase.ktx.Firebase
 import java.sql.Types.NULL
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,6 +87,8 @@ class MainActivity : ComponentActivity() {
                                     onClick = {
                                         Toast.makeText(baseContext,"You are logout",Toast.LENGTH_SHORT).show()
                                         val intent = Intent(baseContext, LoginUI::class.java)
+                                        auth = Firebase.auth
+                                        auth.signOut()
                                         startActivity(intent)
 
                                     },
@@ -103,6 +108,28 @@ class MainActivity : ComponentActivity() {
                                     )
                                     Spacer(Modifier.size(ButtonDefaults.IconSpacing))
                                     Text("Logout")
+                                }
+                                Button(
+                                    onClick = {
+                                        val intent = Intent(baseContext, SettingsActivity::class.java)
+                                        startActivity(intent)
+                                    },
+                                    contentPadding = PaddingValues(
+                                        start = 20.dp,
+                                        top = 12.dp,
+                                        end = 20.dp,
+                                        bottom = 12.dp
+                                    )
+                                )
+                                {    // gives a logout button
+                                    Icon(
+                                        Icons.Filled.Settings,
+                                        contentDescription = "Settings",
+                                        modifier = Modifier.size(ButtonDefaults.IconSize),
+
+                                        )
+                                    Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+                                    Text("Settings")
                                 }
                             }
                         }
