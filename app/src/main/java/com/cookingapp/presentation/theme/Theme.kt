@@ -2,14 +2,19 @@
 //
 // This file contains the color selection used for the theme of the application
 
-package com.cookingapp.ui.theme
+package com.cookingapp.presentation.theme
 
-import android.os.Build
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme.shapes
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+
 
 // sets the colors for the darkColorScheme
 private val DarkColorPalette = darkColorScheme(
@@ -80,23 +85,25 @@ private val LightColorPalette = lightColorScheme(
     */
 )
 
+
+
 // Composable for the colorSchemes. Sets requirements to select theme being used
 @Composable
-fun CookingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    // sets colors for theme based on Android version. Must meet minimum requirement due to
-    // Dynamic coloring being used
-    val useDynamicColors = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-    val colorScheme = when { // when to decide color scheme
-        useDynamicColors && darkTheme -> dynamicDarkColorScheme(LocalContext.current)
-        useDynamicColors && !darkTheme -> dynamicLightColorScheme(LocalContext.current)
-        darkTheme -> DarkColorPalette
-        else -> LightColorPalette
-    }
-    // set values for theme
+fun CookingAppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+    ){
     MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+        colorScheme = if (darkTheme) DarkColorPalette else LightColorPalette,
+        typography = typography,
+        shapes = shapes,
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.surface)
+        ) {
+            content()
+        }
+    }
 }

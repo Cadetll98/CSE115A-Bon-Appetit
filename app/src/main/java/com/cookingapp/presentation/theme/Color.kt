@@ -4,7 +4,7 @@
 // Color values can be found and selected at https://www.w3schools.com/colors/colors_picker.asp
 //
 // val <Selected Color Name> = Color(<Color Value>)
-package com.cookingapp.ui.theme
+package com.cookingapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -47,3 +47,13 @@ val GreenGrey50 = Color(0xFF52ad76)
 val GreenGrey60 = Color(0xFF74be92)
 val GreenGrey80 = Color(0xFFbadec8)
 val GreenGrey90 = Color(0xFFdcefe4)
+
+val Gray300 = Color(0xFFe0e0e0)
+val Gray400 = Color(0xFFbdbdbd)
+
+val Black1 = Color(0xFF222222)
+
+val White = Color(0xFFFFFFFF)
+
+val RedErrorDark = Color(0xFFB00020)
+val RedErrorLight = Color(0xFFEF5350)

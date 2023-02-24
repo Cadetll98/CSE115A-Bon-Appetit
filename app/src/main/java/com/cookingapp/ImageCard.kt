@@ -16,6 +16,9 @@ import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
 import kotlin.random.Random
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.getValue
 
 // OptIn to use experimental Material3Api
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,7 +38,7 @@ fun ImageCard(
     ) {
         Image(  // define image for card block on furthest back
             painter = rememberAsyncImagePainter(
-                model = "https://picsum.photos/seed/${Random.nextInt()}/300/200"    // temporary randome image for cards
+                model = "https://picsum.photos/seed/${Random.nextInt()}/300/200"    // temporary random image for cards
             ),
             contentDescription = null,  // Description for image content
             modifier = Modifier
@@ -44,7 +47,7 @@ fun ImageCard(
                 .aspectRatio(3f/2f)     // set dimensions  for card for
         )
         Column(
-            modifier = Modifier.padding(16.dp)      // set padding around bolumn
+            modifier = Modifier.padding(16.dp)      // set padding around column
         ) {
             Text(
                 text = title,
@@ -74,7 +77,7 @@ fun ImageCard(
                         )
                     },
                     label = {
-                        Text(text = "Mark as favorite")     // Text displayed on button
+                        Text(text = "To Ingredient List")     // Text displayed on button
                     }
                 )
                 AssistChip(
