@@ -5,6 +5,7 @@
 package com.cookingapp.ui.theme
 
 import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -82,7 +83,7 @@ private val LightColorPalette = lightColorScheme(
 
 // Composable for the colorSchemes. Sets requirements to select theme being used
 @Composable
-fun CookingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(),
+fun CookingAppTheme(darkTheme: Boolean = isNightMode(),
                     content: @Composable () -> Unit) {
     // sets colors for theme based on Android version. Must meet minimum requirement due to
     // Dynamic coloring being used
@@ -100,4 +101,11 @@ fun CookingAppTheme(darkTheme: Boolean = isSystemInDarkTheme(),
         shapes = Shapes,
         content = content
     )
+}
+
+@Composable
+private fun isNightMode() = when (AppCompatDelegate.getDefaultNightMode()) {
+    AppCompatDelegate.MODE_NIGHT_NO -> false
+    AppCompatDelegate.MODE_NIGHT_YES -> true
+    else -> isSystemInDarkTheme()
 }

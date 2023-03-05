@@ -18,7 +18,7 @@ class LoginUI : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         auth = Firebase.auth
-        auth.signOut()  // debug
+        //auth.signOut()  // debug
         val currentUser = auth.currentUser
 
         // Go to main menu if user is signed in, else go to LoginUI

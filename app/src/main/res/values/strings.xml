@@ -3,7 +3,7 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
+    <string name="messages_header">Preferences</string>
     <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
@@ -13,7 +13,11 @@
     <!-- Sync Preferences -->
     <string name="sync_title">Dark mode</string>
     <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="notify_title">Notification</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="notify_summary_on">Notification On
+    </string>
+    <string name="notify_summary_off">Notification Off</string>
 </resources>

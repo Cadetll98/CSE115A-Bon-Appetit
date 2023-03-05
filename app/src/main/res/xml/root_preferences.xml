@@ -15,6 +15,11 @@
             app:summaryOff="@string/attachment_summary_off"
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" />
+        <SwitchPreferenceCompat
+            app:key="notify"
+            app:summaryOff="@string/notify_summary_off"
+            app:summaryOn="@string/notify_summary_on"
+            app:title="@string/notify_title" />
 
     </PreferenceCategory>
 
