@@ -138,7 +138,7 @@ fun Index(
                 MealDetailScreen(
                     viewModel = viewModel,
                     navController = navController,
-                    onPlayTheGameClicked = { mealUrl ->
+                    onStepByStepClicked = { mealUrl ->
                         onPlayTheGameClicked(mealUrl)
                     }
                 )

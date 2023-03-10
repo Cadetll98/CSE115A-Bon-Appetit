@@ -10,13 +10,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cookingapp.R
+/*
+@Preview
+@Composable
+fun NavBarPre() {
+    NavBar("title") {
 
+    }
+}*/
 @Composable
 fun NavBar(
     title: String,
-    onBackPress: () -> Unit
+    onBackPress: () -> Unit,
+    onStepByStep: () -> Unit
 ){
     Row(modifier = Modifier
         .fillMaxWidth()
@@ -32,6 +41,13 @@ fun NavBar(
             )
         }
         Text(text = title)
+        IconButton(onClick = { onStepByStep() }) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_circle_info_solid),
+                contentDescription = "",
+                tint = MaterialTheme.colors.onBackground
+            )
+        }
         Spacer(modifier = Modifier.requiredWidth(26.dp))
     }
 

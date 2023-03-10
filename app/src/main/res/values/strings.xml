@@ -24,4 +24,5 @@
     <string name="lbl_loading">Loading</string>
     <string name="lbl_search">Search</string>
     <string name="txt_empty_result">Oops...! we couldn\'t find the game</string>
+    <string name="title_activity_step_by_step_overlay">StepByStepOverlay</string>
 </resources>

@@ -32,7 +32,7 @@ import com.cookingapp.util.LOADING
 fun MealDetailScreen(
     viewModel: MealDetailViewModel,
     navController: NavHostController,
-    onPlayTheGameClicked: (String) -> Unit
+    onStepByStepClicked: (String) -> Unit
 ) {
 
     val mealDetailState by viewModel.mealDetailState
@@ -45,6 +45,9 @@ fun MealDetailScreen(
             title = stringResource(id = R.string.lbl_detail, mealTitleState),
             onBackPress = {
                 navController.navigateUp()
+            },
+            onStepByStep = {
+                navController.navigate("MealDetailStepByStepOverlay")
             }
         )
 
@@ -244,7 +247,7 @@ fun MealDetailScreen(
                             iconResId = R.drawable.ic_circle_info_solid,
                             textButton = stringResource(id = R.string.lbl_play_the_game),
                             onClick = {
-                                onPlayTheGameClicked(mealDetail.mealUrl)
+                                onStepByStepClicked(mealDetail.mealUrl)
                             }
                         )
                         Spacer(modifier = Modifier.height(height = 20.dp))
