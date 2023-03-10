@@ -1,6 +1,5 @@
 package com.cookingapp.presentation.component
 
-import android.widget.Space
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -10,17 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cookingapp.R
-/*
-@Preview
-@Composable
-fun NavBarPre() {
-    NavBar("title") {
 
-    }
-}*/
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.unit.sp
+
 @Composable
 fun NavBar(
     title: String,
@@ -29,26 +24,29 @@ fun NavBar(
 ){
     Row(modifier = Modifier
         .fillMaxWidth()
+        .height(48.dp)
+        .padding(top = 8.dp)
         .padding(horizontal = 8.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(onClick = { onBackPress() }) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_circle_info_solid),
-                contentDescription = "",
-                tint = MaterialTheme.colors.onBackground
+                painter = painterResource(id = R.drawable.ic_home),
+                contentDescription = "Icon",
+                modifier = Modifier.size(36.dp)
             )
         }
-        Text(text = title)
+        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
+        Text(text = title, fontSize = 18.sp)
+        Spacer(modifier = Modifier.fillMaxWidth().weight(1f))
         IconButton(onClick = { onStepByStep() }) {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_circle_info_solid),
-                contentDescription = "",
-                tint = MaterialTheme.colors.onBackground
+            Image(
+                painter = painterResource(R.drawable.ic_step_by_step),
+                contentDescription = "Icon",
+                modifier = Modifier.size(36.dp)
             )
         }
-        Spacer(modifier = Modifier.requiredWidth(26.dp))
     }
 
 }
