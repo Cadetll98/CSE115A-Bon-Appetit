@@ -25,12 +25,14 @@ import com.cookingapp.presentation.component.drawer.NavigationDrawerItem
 import com.cookingapp.presentation.screen.meal.MealDetailScreen
 import com.cookingapp.presentation.screen.meal.MealDetailViewModel
 import com.cookingapp.presentation.screen.home.HomeScreen
+import com.cookingapp.presentation.screen.meal.Overlay
 import com.cookingapp.presentation.screen.search.SearchScreen
 import com.cookingapp.presentation.screen.search.SearchViewModel
 import com.cookingapp.util.ALL_MEALS_KEY
 import com.cookingapp.util.Resource
 import com.cookingapp.util.SEARCH_SCREEN_FILTER_KEY
 import com.intuit.sdp.R
+
 
 @Composable
 fun Index(
@@ -141,6 +143,11 @@ fun Index(
                     onStepByStepClicked = { mealUrl ->
                         onPlayTheGameClicked(mealUrl)
                     }
+                )
+            }
+            composable(route = "MealDetailStepByStepOverlay") {
+                Overlay(
+                    navController = navController
                 )
             }
             composable(

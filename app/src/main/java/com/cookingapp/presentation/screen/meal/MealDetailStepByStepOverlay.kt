@@ -57,9 +57,8 @@ val exTxt = listOf<String>(
 
 data class Page(val imgUrl: String, val text: String)
 
-@Preview
 @Composable
-fun Overlay() {
+fun Overlay(navController: NavHostController) {
     var pageIndex by remember { mutableStateOf(0) } // state variable for page index
     val pages = listOf( // list of pages containing image and text
         Page(exUrl[0], exTxt[0]),
