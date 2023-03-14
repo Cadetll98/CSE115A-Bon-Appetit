@@ -131,6 +131,28 @@ class MainActivity : ComponentActivity() {
                                     Spacer(Modifier.size(ButtonDefaults.IconSpacing))
                                     Text("Settings")
                                 }
+                                Button(
+                                    onClick = {
+                                        val intent = Intent(baseContext, Timer::class.java)
+                                        startActivity(intent)
+                                    },
+                                    contentPadding = PaddingValues(
+                                        start = 20.dp,
+                                        top = 12.dp,
+                                        end = 20.dp,
+                                        bottom = 12.dp
+                                    )
+                                )
+                                {    // gives a logout button
+                                    Icon(
+                                        Icons.Filled.Add,
+                                        contentDescription = "Timer",
+                                        modifier = Modifier.size(ButtonDefaults.IconSize),
+
+                                        )
+                                    Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+                                    Text("Timer")
+                                }
                             }
                         }
 
