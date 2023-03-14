@@ -33,12 +33,12 @@ class MealDetailViewModel @Inject constructor(
 
     init {
         savedStateHandle.get<String>(key = MEAL_ID_KEY)?.let { id ->
-            getMealDetail(id = id.toInt())
+            getMealDetail(id = id)
         }
     }
 
 
-    private fun getMealDetail(id: Int){
+    private fun getMealDetail(id: String){
         viewModelScope.launch {
             _mealDetailState.value = repository.getMeal(id = id)
         }
