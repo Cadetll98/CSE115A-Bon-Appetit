@@ -17,7 +17,7 @@
         <activity
             android:theme="@style/Theme.AppCompat.Light"
             android:name=".LoginUI"
-            android:exported="false">
+            android:exported="true">
         </activity>
         <activity
             android:name=".presentation.activity.MainActivity"
