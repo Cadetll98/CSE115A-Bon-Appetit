@@ -4,6 +4,7 @@
 
 package com.cookingapp.presentation.theme
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
@@ -21,7 +22,7 @@ private val DarkColorPalette = darkColorScheme(
     primary = Green80,
     onPrimary = Green20,
     primaryContainer = Green30,
-    onPrimaryContainer = Green90,
+    onPrimaryContainer = Color.Black,
     inversePrimary = Green40,
     secondary = DarkGreen80,
     onSecondary = DarkGreen20,
@@ -49,7 +50,7 @@ private val DarkColorPalette = darkColorScheme(
 // sets the colors for the lightColorScheme
 private val LightColorPalette = lightColorScheme(
     primary = Green40,
-    onPrimary = Color.White,
+    onPrimary = Green20,
     primaryContainer = Green90,
     onPrimaryContainer = Green10,
     inversePrimary = Green80,
@@ -90,11 +91,12 @@ private val LightColorPalette = lightColorScheme(
 // Composable for the colorSchemes. Sets requirements to select theme being used
 @Composable
 fun CookingAppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     content: @Composable () -> Unit
     ){
     MaterialTheme(
-        colorScheme = if (darkTheme) DarkColorPalette else LightColorPalette,
+        colorScheme = if (darkTheme){ DarkColorPalette}
+        else {LightColorPalette},
         typography = typography,
         shapes = shapes,
     ) {

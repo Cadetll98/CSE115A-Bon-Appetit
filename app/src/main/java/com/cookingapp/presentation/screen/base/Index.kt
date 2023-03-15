@@ -2,9 +2,9 @@ package com.cookingapp.presentation.screen.base
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,10 +72,10 @@ fun Index(
                             .requiredHeight(45.dp)
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
-                        iconColor = MaterialTheme.colors.primary,
+                        iconColor = MaterialTheme.colorScheme.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_home),
-                        textStyle = MaterialTheme.typography.subtitle1,
-                        textColor = MaterialTheme.colors.onBackground,
+                        textStyle = MaterialTheme.typography.bodyMedium,
+                        textColor = MaterialTheme.colorScheme.onBackground,
                         onClick = onHomeMenuClick
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
@@ -84,10 +84,10 @@ fun Index(
                             .requiredHeight(45.dp)
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
-                        iconColor = MaterialTheme.colors.primary,
+                        iconColor = MaterialTheme.colorScheme.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_mexican_food),
-                        textStyle = MaterialTheme.typography.subtitle1,
-                        textColor = MaterialTheme.colors.onBackground,
+                        textStyle = MaterialTheme.typography.bodyMedium,
+                        textColor = MaterialTheme.colorScheme.onBackground,
                         onClick = onPCGamesClick
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
@@ -96,10 +96,10 @@ fun Index(
                             .requiredHeight(45.dp)
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
-                        iconColor = MaterialTheme.colors.primary,
+                        iconColor = MaterialTheme.colorScheme.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_chinese_food),
-                        textStyle = MaterialTheme.typography.subtitle1,
-                        textColor = MaterialTheme.colors.onBackground,
+                        textStyle = MaterialTheme.typography.bodyMedium,
+                        textColor = MaterialTheme.colorScheme.onBackground,
                         onClick = onWebGamesClick
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
@@ -108,10 +108,10 @@ fun Index(
                             .requiredHeight(45.dp)
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
-                        iconColor = MaterialTheme.colors.primary,
+                        iconColor = MaterialTheme.colorScheme.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_latest_meals),
-                        textStyle = MaterialTheme.typography.subtitle1,
-                        textColor = MaterialTheme.colors.onBackground,
+                        textStyle = MaterialTheme.typography.bodyMedium,
+                        textColor = MaterialTheme.colorScheme.onBackground,
                         onClick = onLatestMealsClick
                     )
                 }

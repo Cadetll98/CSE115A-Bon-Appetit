@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:targetApi="31"
-        android:theme="@style/Theme.SplashScreen"
+        android:theme="@style/Theme.CookingAppTheme"
         android:usesCleartextTraffic="true">
         <activity
             android:theme="@style/Theme.AppCompat.Light"

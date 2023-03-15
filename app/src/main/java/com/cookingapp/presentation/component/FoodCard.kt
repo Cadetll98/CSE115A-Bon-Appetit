@@ -2,7 +2,11 @@ package com.cookingapp.presentation.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +32,7 @@ fun FoodCard(
             .padding(all = 8.dp)
             .clickable { onClick() },
         elevation = 8.dp,
-        backgroundColor = MaterialTheme.colors.surface
+        backgroundColor = MaterialTheme.colorScheme.surface
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
@@ -74,9 +78,9 @@ fun FoodCard(
                         modifier = Modifier
                             .padding(all = 5.dp)
                             .align(alignment = Alignment.CenterHorizontally),
-                        style = MaterialTheme.typography.body1,
+                        style = MaterialTheme.typography.bodyMedium,
                         overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colors.onPrimary,
+                        color = MaterialTheme.colorScheme.onPrimary,
                     )
                     Box(
                         modifier = Modifier
@@ -85,8 +89,8 @@ fun FoodCard(
                         Text(
                             text = meal.shortDescription,
                             modifier = Modifier.fillMaxWidth(fraction = 0.85f),
-                            style = MaterialTheme.typography.caption,
-                            color = MaterialTheme.colors.onSurface,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface,
                             overflow = TextOverflow.Ellipsis
                         )
                     }
@@ -99,13 +103,13 @@ fun FoodCard(
                         .padding(end = 5.dp)
                 ) {
                     Chip(
-                        backgroundColor = MaterialTheme.colors.primaryVariant,
+                        backgroundColor = MaterialTheme.colorScheme.onPrimaryContainer,
                         borderWidth = 1.dp,
                     ) {
                         Text(
                             modifier = Modifier.padding(all = 5.dp),
                             text = meal.tag[0],
-                            style = MaterialTheme.typography.caption,
+                            style = MaterialTheme.typography.bodySmall,
                             color = Color.Black
                         )
                     }

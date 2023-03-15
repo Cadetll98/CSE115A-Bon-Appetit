@@ -5,8 +5,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -125,38 +125,38 @@ fun MealDetailScreen(
 
                         Text(
                             text = mealDetail.title,
-                            style = MaterialTheme.typography.h2,
-                            color = MaterialTheme.colors.onBackground,
+                            style = MaterialTheme.typography.titleLarge,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
                         ExpandableText(
                             text = mealDetail.shortDescription,
-                            style = MaterialTheme.typography.caption,
-                            color = MaterialTheme.colors.onBackground,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
                         Spacer(modifier = Modifier.height(height = 30.dp))
                         Text(
                             text = stringResource(id = R.string.lbl_more),
-                            style = MaterialTheme.typography.h2,
-                            color = MaterialTheme.colors.onBackground,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
                         ExtraInformationRow(
                             firstTitle = stringResource(id = R.string.lbl_recipe),
                             secondTitle = stringResource(id = R.string.lbl_cuisine),
-                            textColor = MaterialTheme.colors.onSurface
+                            textColor = MaterialTheme.colorScheme.onSurface
                         )
                         ExtraInformationRow(
                             firstTitle = mealDetail.title,
                             secondTitle = mealDetail.tag[0],
-                            textColor = MaterialTheme.colors.onBackground
+                            textColor = MaterialTheme.colorScheme.onBackground
                         )
                         Spacer(modifier = Modifier.height(height = 20.dp))
                         ExtraInformationRow(
                             firstTitle = stringResource(id = R.string.lbl_author),
                             secondTitle = stringResource(id = R.string.lbl_release_date),
-                            textColor = MaterialTheme.colors.onSurface
+                            textColor = MaterialTheme.colorScheme.onSurface
                         )
 //                        ExtraInformationRow(
 //                            firstTitle = mealDetail.publisher,
