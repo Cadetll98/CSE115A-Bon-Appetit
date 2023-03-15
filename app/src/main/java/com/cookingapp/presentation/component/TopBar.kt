@@ -35,7 +35,7 @@ fun TopBar(
         }
         IconButton(onClick = onSearchButtonClick) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_circle_info_solid),
+                painter = painterResource(id = R.drawable.ic_magnifying_glass_solid),
                 contentDescription = "",
                 tint = MaterialTheme.colors.onBackground
             )

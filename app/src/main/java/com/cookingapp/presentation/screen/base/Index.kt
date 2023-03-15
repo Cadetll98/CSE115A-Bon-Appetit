@@ -61,7 +61,7 @@ fun Index(
                             modifier = Modifier
                                 .size(150.dp)
                                 .align(alignment = Alignment.Center),
-                            painter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                            painter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                             contentDescription = "",
                         )
                     }
@@ -71,7 +71,7 @@ fun Index(
                         modifier = Modifier
                             .requiredHeight(45.dp)
                             .padding(5.dp),
-                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colors.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_home),
                         textStyle = MaterialTheme.typography.subtitle1,
@@ -83,7 +83,7 @@ fun Index(
                         modifier = Modifier
                             .requiredHeight(45.dp)
                             .padding(5.dp),
-                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colors.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_mexican_food),
                         textStyle = MaterialTheme.typography.subtitle1,
@@ -95,7 +95,7 @@ fun Index(
                         modifier = Modifier
                             .requiredHeight(45.dp)
                             .padding(5.dp),
-                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colors.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_chinese_food),
                         textStyle = MaterialTheme.typography.subtitle1,
@@ -107,7 +107,7 @@ fun Index(
                         modifier = Modifier
                             .requiredHeight(45.dp)
                             .padding(5.dp),
-                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colors.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_latest_meals),
                         textStyle = MaterialTheme.typography.subtitle1,

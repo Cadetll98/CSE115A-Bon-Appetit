@@ -107,7 +107,7 @@ fun MealDetailScreen(
                             }
                         )
                     } else {
-                        mealDetail.screenShots?.let {
+                        mealDetail.screenShots?.let { it ->
                             CarouselView(
                                 urls = it.map { it.image },
                                 modifier = Modifier
@@ -124,7 +124,7 @@ fun MealDetailScreen(
                     Column(modifier = Modifier.padding(horizontal = 5.dp)) {
 
                         Text(
-                            text = stringResource(id = R.string.lbl_about, mealDetail.title),
+                            text = mealDetail.title,
                             style = MaterialTheme.typography.h2,
                             color = MaterialTheme.colors.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
@@ -137,27 +137,27 @@ fun MealDetailScreen(
                         )
                         Spacer(modifier = Modifier.height(height = 30.dp))
                         Text(
-                            text = stringResource(id = R.string.lbl_extra),
+                            text = stringResource(id = R.string.lbl_more),
                             style = MaterialTheme.typography.h2,
                             color = MaterialTheme.colors.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
                         ExtraInformationRow(
-                            firstTitle = stringResource(id = R.string.lbl_title),
-                            secondTitle = stringResource(id = R.string.lbl_developer),
+                            firstTitle = stringResource(id = R.string.lbl_recipe),
+                            secondTitle = stringResource(id = R.string.lbl_cuisine),
                             textColor = MaterialTheme.colors.onSurface
                         )
-//                        ExtraInformationRow(
-//                            firstTitle = mealDetail.title,
-//                            secondTitle = mealDetail.developer,
-//                            textColor = MaterialTheme.colors.onBackground
-//                        )
-//                        Spacer(modifier = Modifier.height(height = 20.dp))
-//                        ExtraInformationRow(
-//                            firstTitle = stringResource(id = R.string.lbl_publisher),
-//                            secondTitle = stringResource(id = R.string.lbl_release_date),
-//                            textColor = MaterialTheme.colors.onSurface
-//                        )
+                        ExtraInformationRow(
+                            firstTitle = mealDetail.title,
+                            secondTitle = mealDetail.tag[0],
+                            textColor = MaterialTheme.colors.onBackground
+                        )
+                        Spacer(modifier = Modifier.height(height = 20.dp))
+                        ExtraInformationRow(
+                            firstTitle = stringResource(id = R.string.lbl_author),
+                            secondTitle = stringResource(id = R.string.lbl_release_date),
+                            textColor = MaterialTheme.colors.onSurface
+                        )
 //                        ExtraInformationRow(
 //                            firstTitle = mealDetail.publisher,
 //                            secondTitle = mealDetail.releaseDate,
@@ -243,7 +243,7 @@ fun MealDetailScreen(
 //                        }
                         LeadingIconButton(
                             modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-                            iconResId = R.drawable.ic_circle_info_solid,
+                            iconResId = R.drawable.ic_back,
                             textButton = stringResource(id = R.string.lbl_play_the_game),
                             onClick = {
                                 mealDetail.mealUrl?.let { onPlayTheGameClicked(it) }

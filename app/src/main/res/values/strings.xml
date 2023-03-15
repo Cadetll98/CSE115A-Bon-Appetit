@@ -7,10 +7,10 @@
     <string name="wrn_no_meals">Oops...! it seems that there is no meals for the moment please try again</string>
     <string name="lbl_about">About</string>
     <string name="lbl_detail">detail</string>
-    <string name="lbl_extra">Extra</string>
-    <string name="lbl_title">Title</string>
-    <string name="lbl_developer">Developer</string>
-    <string name="lbl_publisher">Publisher</string>
+    <string name="lbl_more">More</string>
+    <string name="lbl_recipe">Recipe</string>
+    <string name="lbl_cuisine">Cuisine</string>
+    <string name="lbl_author">Author</string>
     <string name="lbl_release_date">Release date</string>
     <string name="lbl_genre">Genre</string>
     <string name="lbl_platform">Platform</string>

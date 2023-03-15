@@ -61,7 +61,7 @@ fun SearchBar(
             )
             IconButton(onClick = onClearQuery) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_circle_info_solid),
+                    painter = painterResource(id = R.drawable.ic_xmark_solid),
                     contentDescription = "",
                     tint = MaterialTheme.colors.onBackground,
                     modifier = Modifier.requiredSize(size = dimensionResource(id = com.intuit.sdp.R.dimen._24sdp))

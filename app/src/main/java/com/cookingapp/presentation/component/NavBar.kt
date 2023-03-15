@@ -26,7 +26,7 @@ fun NavBar(
     ) {
         IconButton(onClick = { onBackPress() }) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_circle_info_solid),
+                painter = painterResource(id = R.drawable.ic_back),
                 contentDescription = "",
                 tint = MaterialTheme.colors.onBackground
             )
