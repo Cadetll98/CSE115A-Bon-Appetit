@@ -16,7 +16,7 @@ import com.cookingapp.domain.model.Meal
 fun SearchSuggestions(
     query: String,
     searchResult: List<Meal>,
-    onClick: (Int) -> Unit
+    onClick: (String) -> Unit
 ){
     if(searchResult.isEmpty()){
         if(query.isNotEmpty()){
@@ -37,9 +37,8 @@ fun SearchSuggestions(
             items(items = searchResult){ meal ->
                 SearchSuggestionsItem(
                     mealTitle = meal.title,
-                    mealId = meal.id,
-                    onClick = { onClick(meal.id) }
-                )
+                    mealId = meal.id
+                ) { onClick(meal.id) }
             }
 
         }

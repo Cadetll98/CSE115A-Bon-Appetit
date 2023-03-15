@@ -9,7 +9,7 @@ import com.cookingapp.util.Resource
 interface MealRepository {
     suspend fun getAllMeals(): Resource<List<Meal>>
 
-    suspend fun getMeal(id: Int): Resource<MealDetail?>
+    suspend fun getMeal(id: String): Resource<MealDetail?>
 
     suspend fun getMealsByPlatform(platform :String): Resource<List<Meal>>
 
