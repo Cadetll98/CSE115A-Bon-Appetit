@@ -255,7 +255,7 @@ fun MealDetailScreen(
                             iconResId = R.drawable.ic_circle_info_solid,
                             textButton = stringResource(id = R.string.lbl_play_the_game),
                             onClick = {
-                                mealDetail.mealUrl?.let { onPlayTheGameClicked(it) }
+                                mealDetail.mealUrl?.let { onStepByStepClicked(it) }
                             }
                         )
                         Spacer(modifier = Modifier.height(height = 20.dp))
