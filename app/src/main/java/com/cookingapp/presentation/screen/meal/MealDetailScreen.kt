@@ -19,21 +19,13 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cookingapp.R
 import com.cookingapp.presentation.component.*
-import com.cookingapp.presentation.screen.base.Screen
-import com.cookingapp.presentation.screen.home.HomeScreen
-import com.cookingapp.presentation.theme.Grey20
 import com.cookingapp.presentation.theme.Red40
 import com.cookingapp.util.LOADING
-import com.cookingapp.presentation.screen.meal.Overlay
 
 @Composable
 fun MealDetailScreen(
@@ -253,7 +245,7 @@ fun MealDetailScreen(
                         LeadingIconButton(
                             modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
                             iconResId = R.drawable.ic_back,
-                            textButton = stringResource(id = R.string.lbl_play_the_game),
+                            textButton = stringResource(id = R.string.lbl_go_to_meal_url),
                             onClick = {
                                 mealDetail.mealUrl?.let { onStepByStepClicked(it) }
                             }

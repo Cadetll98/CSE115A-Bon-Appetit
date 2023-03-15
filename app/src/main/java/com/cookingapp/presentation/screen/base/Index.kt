@@ -42,10 +42,10 @@ fun Index(
     onOpenDrawer: () -> Unit,
     onSearchButtonClick: () -> Unit,
     onMealClick: (String) -> Unit,
-    onPlayTheGameClicked: (String) -> Unit,
+    onGoToMealUrlClicked: (String) -> Unit,
     onHomeMenuClick: () -> Unit,
-    onPCGamesClick: () -> Unit,
-    onWebGamesClick: () -> Unit,
+    onGreekFoodClick: () -> Unit,
+    onItalianFoodClick: () -> Unit,
     onLatestMealsClick: () -> Unit,
     onLogoutClick:() -> Unit
 ) {
@@ -64,7 +64,7 @@ fun Index(
                             modifier = Modifier
                                 .size(150.dp)
                                 .align(alignment = Alignment.Center),
-                            painter = painterResource(id = com.cookingapp.R.drawable.ic_back),
+                            painter = painterResource(id = com.cookingapp.R.mipmap.ic_splash_icon),
                             contentDescription = "",
                         )
                     }
@@ -88,10 +88,10 @@ fun Index(
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colorScheme.primary,
-                        text = stringResource(id = com.cookingapp.R.string.lbl_mexican_food),
+                        text = stringResource(id = com.cookingapp.R.string.lbl_greek_food),
                         textStyle = MaterialTheme.typography.bodyMedium,
                         textColor = MaterialTheme.colorScheme.onBackground,
-                        onClick = onPCGamesClick
+                        onClick = onGreekFoodClick
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
                     NavigationDrawerItem(
@@ -100,10 +100,10 @@ fun Index(
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_back),
                         iconColor = MaterialTheme.colorScheme.primary,
-                        text = stringResource(id = com.cookingapp.R.string.lbl_chinese_food),
+                        text = stringResource(id = com.cookingapp.R.string.lbl_italian_food),
                         textStyle = MaterialTheme.typography.bodyMedium,
                         textColor = MaterialTheme.colorScheme.onBackground,
-                        onClick = onWebGamesClick
+                        onClick = onItalianFoodClick
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
                     NavigationDrawerItem(
@@ -125,10 +125,10 @@ fun Index(
                             .requiredHeight(45.dp)
                             .padding(5.dp),
                         iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
-                        iconColor = MaterialTheme.colors.primary,
+                        iconColor = MaterialTheme.colorScheme.primary,
                         text = stringResource(id = com.cookingapp.R.string.lbl_logout),
-                        textStyle = MaterialTheme.typography.subtitle1,
-                        textColor = MaterialTheme.colors.onBackground,
+                        textStyle = MaterialTheme.typography.bodyMedium,
+                        textColor = MaterialTheme.colorScheme.onBackground,
                         onClick = onLogoutClick
                     )
                 }
@@ -156,7 +156,7 @@ fun Index(
                     viewModel = viewModel,
                     navController = navController,
                     onStepByStepClicked = { mealUrl ->
-                        onPlayTheGameClicked(mealUrl)
+                        onGoToMealUrlClicked(mealUrl)
                     }
                 )
             }

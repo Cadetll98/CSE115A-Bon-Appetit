@@ -91,7 +91,7 @@ private val LightColorPalette = lightColorScheme(
 // Composable for the colorSchemes. Sets requirements to select theme being used
 @Composable
 fun CookingAppTheme(
-    darkTheme: Boolean = true,
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
     ){
     MaterialTheme(

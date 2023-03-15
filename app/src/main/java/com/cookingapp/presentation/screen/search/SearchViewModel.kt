@@ -52,8 +52,8 @@ class SearchViewModel @Inject constructor(
 
         savedStateHandle.get<String>(key = SEARCH_SCREEN_FILTER_KEY)?.let { filter ->
             when(filter){
-                PC_GAMES -> getMealsByPlatform(filter = PC_GAMES)
-                BROWSER_GAMES -> getMealsByPlatform(filter = BROWSER_GAMES)
+                ITALIAN_FOOD -> getMealsByPlatform(filter = ITALIAN_FOOD)
+                GREEK_FOOD -> getMealsByPlatform(filter = GREEK_FOOD)
                 LATEST_MEALS -> getLatestMeals()
             }
         }

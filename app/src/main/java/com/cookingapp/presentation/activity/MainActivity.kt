@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
                     onMealClick = { mealId ->
                         navController.navigate(route = "mealDetail/$mealId")
                     },
-                    onPlayTheGameClicked = { mealUrl ->
+                    onGoToMealUrlClicked = { mealUrl ->
                         uriHandler.openUri(uri = mealUrl)
                     },
                     onHomeMenuClick = {
@@ -92,16 +92,16 @@ class MainActivity : ComponentActivity() {
                             navController.navigate(route = Screen.HomeScreen.route)
                         }
                     },
-                    onPCGamesClick = {
+                    onGreekFoodClick = {
                         scope.launch {
-                            val path = "search?mode=$FILTER_MODE_KEY&filter=$PC_GAMES"
+                            val path = "search?mode=$FILTER_MODE_KEY&filter=$GREEK_FOOD"
                             scaffoldState.drawerState.close()
                             navController.navigate(route = path)
                         }
                     },
-                    onWebGamesClick = {
+                    onItalianFoodClick = {
                         scope.launch {
-                            val path = "search?mode=$FILTER_MODE_KEY&filter=$BROWSER_GAMES"
+                            val path = "search?mode=$FILTER_MODE_KEY&filter=$ITALIAN_FOOD"
                             scaffoldState.drawerState.close()
                             navController.navigate(route = path)
                         }
