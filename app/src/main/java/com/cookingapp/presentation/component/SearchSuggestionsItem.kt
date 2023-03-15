@@ -20,8 +20,8 @@ import com.cookingapp.R
 @Composable
 fun SearchSuggestionsItem(
     mealTitle: String,
-    mealId: Int,
-    onClick: (Int) -> Unit
+    mealId: String,
+    onClick: (String) -> Unit
 ) {
     IconButton(
         modifier = Modifier.fillMaxWidth(),

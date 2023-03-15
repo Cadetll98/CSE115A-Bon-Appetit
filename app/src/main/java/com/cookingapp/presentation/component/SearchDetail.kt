@@ -16,7 +16,7 @@ import com.cookingapp.domain.model.Meal
 fun SearchDetail(
     query: String,
     searchResult: List<Meal>,
-    onClick: (Int) -> Unit
+    onClick: (String) -> Unit
 ) {
     if(searchResult.isEmpty()){
         if(query.isNotEmpty()){

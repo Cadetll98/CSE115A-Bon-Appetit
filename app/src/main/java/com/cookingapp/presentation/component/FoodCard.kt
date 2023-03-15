@@ -104,13 +104,13 @@ fun FoodCard(
                     ) {
                         Text(
                             modifier = Modifier.padding(all = 5.dp),
-                            text = meal.genre,
+                            text = meal.tag[0],
                             style = MaterialTheme.typography.caption,
                             color = Color.Black
                         )
                     }
                     Spacer(modifier = Modifier.padding(end = 3.dp))
-                    Rating(text = meal.platform) // this needs to be changed to rating on meal description
+                    Rating(text = meal.tag[0]) // this needs to be changed to rating on meal description
                 }
             }
         }

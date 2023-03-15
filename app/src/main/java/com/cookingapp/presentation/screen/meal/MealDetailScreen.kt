@@ -21,30 +21,39 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.cookingapp.R
 import com.cookingapp.presentation.component.*
+import com.cookingapp.presentation.screen.base.Screen
+import com.cookingapp.presentation.screen.home.HomeScreen
 import com.cookingapp.presentation.theme.Grey20
 import com.cookingapp.presentation.theme.Red40
 import com.cookingapp.util.LOADING
+import com.cookingapp.presentation.screen.meal.Overlay
 
 @Composable
 fun MealDetailScreen(
     viewModel: MealDetailViewModel,
     navController: NavHostController,
-    onPlayTheGameClicked: (String) -> Unit
+    onStepByStepClicked: (String) -> Unit
 ) {
-
-    val mealDetailState by viewModel.mealDetailState
-        .collectAsState()
-
+    val mealDetailState by viewModel.mealDetailState.collectAsState()
     val mealTitleState by viewModel.mealTitle
+    val navController2 = rememberNavController()
 
     Column(modifier = Modifier.fillMaxSize()) {
+
         NavBar(
             title = stringResource(id = R.string.lbl_detail, mealTitleState),
             onBackPress = {
                 navController.navigateUp()
+            },
+            onStepByStep = {
+                navController.navigate("MealDetailStepByStepOverlay")
             }
         )
 
@@ -74,7 +83,7 @@ fun MealDetailScreen(
                         .verticalScroll(state = rememberScrollState())
                 ) {
 
-                    if (mealDetail.screenShots.isEmpty()) {
+                    if (mealDetail.screenShots?.isEmpty() == true) {
                         NetworkImage(
                             url = mealDetail.thumbnail,
                             crossFade = 1000,
@@ -107,16 +116,18 @@ fun MealDetailScreen(
                             }
                         )
                     } else {
-                        CarouselView(
-                            urls = mealDetail.screenShots.map { it.image },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .requiredHeight(height = screenHeight * 0.6f)
-                                .padding(vertical = 8.dp, horizontal = 12.dp)
-                                .align(alignment = Alignment.CenterHorizontally),
-                            shape = MaterialTheme.shapes.medium,
-                            crossFade = 1000
-                        )
+                        mealDetail.screenShots?.let {
+                            CarouselView(
+                                urls = it.map { it.image },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .requiredHeight(height = screenHeight * 0.6f)
+                                    .padding(vertical = 8.dp, horizontal = 12.dp)
+                                    .align(alignment = Alignment.CenterHorizontally),
+                                shape = MaterialTheme.shapes.medium,
+                                crossFade = 1000
+                            )
+                        }
                     }
                     Spacer(modifier = Modifier.height(height = 30.dp))
                     Column(modifier = Modifier.padding(horizontal = 5.dp)) {
@@ -128,7 +139,7 @@ fun MealDetailScreen(
                             modifier = Modifier.padding(vertical = 10.dp)
                         )
                         ExpandableText(
-                            text = mealDetail.description,
+                            text = mealDetail.shortDescription,
                             style = MaterialTheme.typography.caption,
                             color = MaterialTheme.colors.onBackground,
                             modifier = Modifier.padding(vertical = 10.dp)
@@ -145,106 +156,106 @@ fun MealDetailScreen(
                             secondTitle = stringResource(id = R.string.lbl_developer),
                             textColor = MaterialTheme.colors.onSurface
                         )
-                        ExtraInformationRow(
-                            firstTitle = mealDetail.title,
-                            secondTitle = mealDetail.developer,
-                            textColor = MaterialTheme.colors.onBackground
-                        )
-                        Spacer(modifier = Modifier.height(height = 20.dp))
-                        ExtraInformationRow(
-                            firstTitle = stringResource(id = R.string.lbl_publisher),
-                            secondTitle = stringResource(id = R.string.lbl_release_date),
-                            textColor = MaterialTheme.colors.onSurface
-                        )
-                        ExtraInformationRow(
-                            firstTitle = mealDetail.publisher,
-                            secondTitle = mealDetail.releaseDate,
-                            textColor = MaterialTheme.colors.onBackground
-                        )
-                        Spacer(modifier = Modifier.height(height = 20.dp))
-                        ExtraInformationRow(
-                            firstTitle = stringResource(id = R.string.lbl_genre),
-                            secondTitle = stringResource(id = R.string.lbl_platform),
-                            textColor = MaterialTheme.colors.onSurface
-                        )
-                        ExtraInformationRow(
-                            firstTitle = mealDetail.genre,
-                            secondTitle = mealDetail.platform,
-                            textColor = MaterialTheme.colors.onBackground,
-                            icon = {
-                                Box(modifier = Modifier.padding(end = 5.dp)) {
-                                    Rating(text = mealDetail.platform)
-                                }
-                            }
-                        )
-                        Spacer(modifier = Modifier.height(height = 30.dp))
-                        mealDetail.minimumSystemRequirements?.let { minimumSystemRequirements ->
-                            Text(
-                                text = stringResource(id = R.string.lbl_msr),
-                                style = MaterialTheme.typography.h2,
-                                color = MaterialTheme.colors.onSurface
-                            )
-                            Spacer(modifier = Modifier.height(height = 20.dp))
-                            Text(
-                                text = stringResource(id = R.string.lbl_os),
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface
-                            )
-                            Text(
-                                text = minimumSystemRequirements.os,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onBackground
-                            )
-                            Spacer(modifier = Modifier.height(height = 15.dp))
-                            Text(
-                                text = stringResource(id = R.string.lbl_memory),
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface
-                            )
-                            Text(
-                                text = minimumSystemRequirements.memory,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onBackground
-                            )
-                            Spacer(modifier = Modifier.height(height = 15.dp))
-                            Text(
-                                text = stringResource(id = R.string.lbl_storage),
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface
-                            )
-                            Text(
-                                text = minimumSystemRequirements.storage,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onBackground
-                            )
-                            Spacer(modifier = Modifier.height(height = 15.dp))
-                            Text(
-                                text = stringResource(id = R.string.lbl_graphics),
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface
-                            )
-                            Text(
-                                text = minimumSystemRequirements.graphics,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onBackground
-                            )
-                            Spacer(modifier = Modifier.height(height = 15.dp))
-                            Text(
-                                text = stringResource(
-                                    id = R.string.lbl_developer_copyright,
-                                    mealDetail.developer
-                                ),
-                                fontSize = 11.sp,
-                                color = Grey20
-                            )
-                            Spacer(modifier = Modifier.height(height = 30.dp))
-                        }
+//                        ExtraInformationRow(
+//                            firstTitle = mealDetail.title,
+//                            secondTitle = mealDetail.developer,
+//                            textColor = MaterialTheme.colors.onBackground
+//                        )
+//                        Spacer(modifier = Modifier.height(height = 20.dp))
+//                        ExtraInformationRow(
+//                            firstTitle = stringResource(id = R.string.lbl_publisher),
+//                            secondTitle = stringResource(id = R.string.lbl_release_date),
+//                            textColor = MaterialTheme.colors.onSurface
+//                        )
+//                        ExtraInformationRow(
+//                            firstTitle = mealDetail.publisher,
+//                            secondTitle = mealDetail.releaseDate,
+//                            textColor = MaterialTheme.colors.onBackground
+//                        )
+//                        Spacer(modifier = Modifier.height(height = 20.dp))
+//                        ExtraInformationRow(
+//                            firstTitle = stringResource(id = R.string.lbl_genre),
+//                            secondTitle = stringResource(id = R.string.lbl_platform),
+//                            textColor = MaterialTheme.colors.onSurface
+//                        )
+//                        ExtraInformationRow(
+//                            firstTitle = mealDetail.genre,
+//                            secondTitle = mealDetail.platform,
+//                            textColor = MaterialTheme.colors.onBackground,
+//                            icon = {
+//                                Box(modifier = Modifier.padding(end = 5.dp)) {
+//                                    Rating(text = mealDetail.platform)
+//                                }
+//                            }
+//                        )
+//                        Spacer(modifier = Modifier.height(height = 30.dp))
+//                        mealDetail.minimumSystemRequirements?.let { minimumSystemRequirements ->
+//                            Text(
+//                                text = stringResource(id = R.string.lbl_msr),
+//                                style = MaterialTheme.typography.h2,
+//                                color = MaterialTheme.colors.onSurface
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 20.dp))
+//                            Text(
+//                                text = stringResource(id = R.string.lbl_os),
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onSurface
+//                            )
+//                            Text(
+//                                text = minimumSystemRequirements.os,
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onBackground
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 15.dp))
+//                            Text(
+//                                text = stringResource(id = R.string.lbl_memory),
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onSurface
+//                            )
+//                            Text(
+//                                text = minimumSystemRequirements.memory,
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onBackground
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 15.dp))
+//                            Text(
+//                                text = stringResource(id = R.string.lbl_storage),
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onSurface
+//                            )
+//                            Text(
+//                                text = minimumSystemRequirements.storage,
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onBackground
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 15.dp))
+//                            Text(
+//                                text = stringResource(id = R.string.lbl_graphics),
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onSurface
+//                            )
+//                            Text(
+//                                text = minimumSystemRequirements.graphics,
+//                                style = MaterialTheme.typography.caption,
+//                                color = MaterialTheme.colors.onBackground
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 15.dp))
+//                            Text(
+//                                text = stringResource(
+//                                    id = R.string.lbl_developer_copyright,
+//                                    mealDetail.developer
+//                                ),
+//                                fontSize = 11.sp,
+//                                color = Grey20
+//                            )
+//                            Spacer(modifier = Modifier.height(height = 30.dp))
+//                        }
                         LeadingIconButton(
                             modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
                             iconResId = R.drawable.ic_circle_info_solid,
                             textButton = stringResource(id = R.string.lbl_play_the_game),
                             onClick = {
-                                onPlayTheGameClicked(mealDetail.mealUrl)
+                                mealDetail.mealUrl?.let { onStepByStepClicked(it) }
                             }
                         )
                         Spacer(modifier = Modifier.height(height = 20.dp))
