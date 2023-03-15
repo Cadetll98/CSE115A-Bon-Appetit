@@ -23,6 +23,7 @@
     <string name="lbl_play_the_game">Play the game</string>
     <string name="lbl_loading">Loading</string>
     <string name="lbl_search">Search</string>
+    <string name="title_activity_step_by_step_overlay">StepByStepOverlay</string>
     <string name="lbl_logout">Log out</string>
     <string name="txt_empty_result">Oops...! we couldn\'t find the recipe</string>
 </resources>
