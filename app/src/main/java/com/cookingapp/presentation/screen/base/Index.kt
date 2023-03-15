@@ -41,12 +41,13 @@ fun Index(
     availableMeals: Resource<List<Meal>>,
     onOpenDrawer: () -> Unit,
     onSearchButtonClick: () -> Unit,
-    onMealClick: (Int) -> Unit,
+    onMealClick: (String) -> Unit,
     onPlayTheGameClicked: (String) -> Unit,
     onHomeMenuClick: () -> Unit,
     onPCGamesClick: () -> Unit,
     onWebGamesClick: () -> Unit,
-    onLatestMealsClick: () -> Unit
+    onLatestMealsClick: () -> Unit,
+    onLogoutClick:() -> Unit
 ) {
     Scaffold(
         scaffoldState = scaffoldState,
@@ -115,6 +116,20 @@ fun Index(
                         textStyle = MaterialTheme.typography.subtitle1,
                         textColor = MaterialTheme.colors.onBackground,
                         onClick = onLatestMealsClick
+                    )
+                },
+                footer = {
+                    Spacer(modifier = Modifier.padding(40.dp))
+                    NavigationDrawerItem(
+                        modifier = Modifier
+                            .requiredHeight(45.dp)
+                            .padding(5.dp),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconColor = MaterialTheme.colors.primary,
+                        text = stringResource(id = com.cookingapp.R.string.lbl_logout),
+                        textStyle = MaterialTheme.typography.subtitle1,
+                        textColor = MaterialTheme.colors.onBackground,
+                        onClick = onLogoutClick
                     )
                 }
             )

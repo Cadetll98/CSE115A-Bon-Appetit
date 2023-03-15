@@ -19,7 +19,7 @@ import com.cookingapp.util.getUrls
 fun FilterMode(
     meals: List<Meal>,
     isLoading: Boolean,
-    onMealClick: (Int) -> Unit,
+    onMealClick: (String) -> Unit,
     onOpenDrawer: () -> Unit,
     onSearchClick: () -> Unit
 ) {

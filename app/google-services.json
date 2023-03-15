@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "478920854759",
-    "project_id": "the-cooking-app-34160",
-    "storage_bucket": "the-cooking-app-34160.appspot.com"
+    "project_number": "1025294076102",
+    "firebase_url": "https://fir-auth-235ea-default-rtdb.firebaseio.com",
+    "project_id": "fir-auth-235ea",
+    "storage_bucket": "fir-auth-235ea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:478920854759:android:18f6fc0b3f698b7dd22642",
+        "mobilesdk_app_id": "1:1025294076102:android:82a04678eff76545536fc7",
         "android_client_info": {
           "package_name": "com.cookingapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "478920854759-ev2vc17n601bm9fgchrn2b2mc1ag4cg2.apps.googleusercontent.com",
+          "client_id": "1025294076102-kj0snhhstf31tisrd3vfqoajtu4kq542.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCMOmwSfEQJaAegXZpO9Vctj-4ZBxrj84g"
+          "current_key": "AIzaSyBUVMJwqldQOMVSy-RBKDcMr3ApcXLgW5Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "478920854759-ev2vc17n601bm9fgchrn2b2mc1ag4cg2.apps.googleusercontent.com",
+              "client_id": "1025294076102-ajrrfcm36sj4698lqpin9csas62l85is.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

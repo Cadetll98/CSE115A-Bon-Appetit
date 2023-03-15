@@ -25,7 +25,7 @@ class MealRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getMeal(id: Int): Resource<MealDetail?> {
+    override suspend fun getMeal(id: String): Resource<MealDetail?> {
         val response = invokeApi {
             api.getMeal(id = id)
         }
