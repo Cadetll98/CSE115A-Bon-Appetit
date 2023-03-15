@@ -1,13 +1,11 @@
 package com.cookingapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import android.widget.EditText
-import com.cookingapp.presentation.activity.MainActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -72,8 +70,6 @@ class LoginUI : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("Login", "signInWithEmail:success")
                     finish()    // go to main menu
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
                 } else {
                     Log.w("Login", "signInWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()

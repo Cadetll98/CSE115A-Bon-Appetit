@@ -15,7 +15,7 @@ fun NavigationDrawer(
     modifier: Modifier = Modifier,
     header: @Composable () -> Unit,
     content: @Composable () -> Unit,
-    footer: (@Composable () -> Unit)
+    footer: (@Composable () -> Unit)? = null
 ) {
     val scrollState = rememberScrollState()
 
@@ -29,8 +29,7 @@ fun NavigationDrawer(
         Column {
             header()
             content()
-            footer()
         }
-//        footer?.invoke()
+        footer?.invoke()
     }
 }
