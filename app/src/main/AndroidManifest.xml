@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name="com.cookingapp.application.CookingAppApplication"
@@ -13,7 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:targetApi="31"
-        android:theme="@style/Theme.SplashScreen">
+        android:theme="@style/Theme.SplashScreen"
+        android:usesCleartextTraffic="true">
         <activity
             android:theme="@style/Theme.AppCompat.Light"
             android:name=".LoginUI"

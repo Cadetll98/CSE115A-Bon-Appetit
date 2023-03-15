@@ -39,7 +39,7 @@ fun Index(
     availableMeals: Resource<List<Meal>>,
     onOpenDrawer: () -> Unit,
     onSearchButtonClick: () -> Unit,
-    onMealClick: (Int) -> Unit,
+    onMealClick: (String) -> Unit,
     onPlayTheGameClicked: (String) -> Unit,
     onHomeMenuClick: () -> Unit,
     onPCGamesClick: () -> Unit,

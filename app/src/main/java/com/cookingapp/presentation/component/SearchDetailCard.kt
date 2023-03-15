@@ -19,7 +19,7 @@ import com.cookingapp.presentation.theme.Red40
 @Composable
 fun SearchDetailCard(
     meal: Meal,
-    onClick: (Int) -> Unit
+    onClick: (String) -> Unit
 ) {
 
     Card(
@@ -92,13 +92,13 @@ fun SearchDetailCard(
                     ) {
                         Text(
                             modifier = Modifier.padding(all = 5.dp),
-                            text = meal.genre,
+                            text = meal.tag[1],
                             style = MaterialTheme.typography.caption,
                             color = Color.Black
                         )
                     }
                     Spacer(modifier = Modifier.padding(end = 3.dp))
-                    Platform(text = meal.platform)
+                    Platform(text = meal.tag[2])
                 }
             }
         }

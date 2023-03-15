@@ -28,7 +28,7 @@ import com.cookingapp.util.header
 fun HomeScreen(
     onOpenDrawer: () -> Unit,
     onSearchButtonClick: () -> Unit,
-    onMealClick: (Int) -> Unit,
+    onMealClick: (String) -> Unit,
     availableMeals: Resource<List<Meal>>
 ) {
     availableMeals.data?.let { meals ->

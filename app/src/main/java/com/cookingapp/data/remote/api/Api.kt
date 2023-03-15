@@ -18,20 +18,20 @@ interface Api {
     // use postman to see and test endpoints. returns in form of json objects
     //suspend fun getAllMeals(): List<MealDto>
 
-    @GET("games")
+    @GET("meals")
     suspend fun getAllMeals(): List<MealDto>
 
-    @GET("game")
+    @GET("meal")
     suspend fun getMeal(
-        @Query("id") id: Int
+        @Query("id") id: String
     ): MealDetailDto?
 
-    @GET("games")
+    @GET("meals")
     suspend fun getMealsByPlatform(
         @Query("platform") platform: String
     ): List<MealDto>
 
-    @GET("games")
+    @GET("meals")
     suspend fun sortMeals(
         @Query("sort-by") criteria: String
     ): List<MealDto>
