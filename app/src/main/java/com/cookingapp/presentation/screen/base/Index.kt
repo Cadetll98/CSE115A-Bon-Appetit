@@ -25,12 +25,14 @@ import com.cookingapp.presentation.component.drawer.NavigationDrawerItem
 import com.cookingapp.presentation.screen.meal.MealDetailScreen
 import com.cookingapp.presentation.screen.meal.MealDetailViewModel
 import com.cookingapp.presentation.screen.home.HomeScreen
+import com.cookingapp.presentation.screen.meal.Overlay
 import com.cookingapp.presentation.screen.search.SearchScreen
 import com.cookingapp.presentation.screen.search.SearchViewModel
 import com.cookingapp.util.ALL_MEALS_KEY
 import com.cookingapp.util.Resource
 import com.cookingapp.util.SEARCH_SCREEN_FILTER_KEY
 import com.intuit.sdp.R
+
 
 @Composable
 fun Index(
@@ -44,7 +46,8 @@ fun Index(
     onHomeMenuClick: () -> Unit,
     onPCGamesClick: () -> Unit,
     onWebGamesClick: () -> Unit,
-    onLatestMealsClick: () -> Unit
+    onLatestMealsClick: () -> Unit,
+    onLogoutClick:() -> Unit
 ) {
     Scaffold(
         scaffoldState = scaffoldState,
@@ -114,6 +117,20 @@ fun Index(
                         textColor = MaterialTheme.colors.onBackground,
                         onClick = onLatestMealsClick
                     )
+                },
+                footer = {
+                    Spacer(modifier = Modifier.padding(40.dp))
+                    NavigationDrawerItem(
+                        modifier = Modifier
+                            .requiredHeight(45.dp)
+                            .padding(5.dp),
+                        iconPainter = painterResource(id = com.cookingapp.R.drawable.ic_circle_info_solid),
+                        iconColor = MaterialTheme.colors.primary,
+                        text = stringResource(id = com.cookingapp.R.string.lbl_logout),
+                        textStyle = MaterialTheme.typography.subtitle1,
+                        textColor = MaterialTheme.colors.onBackground,
+                        onClick = onLogoutClick
+                    )
                 }
             )
         }
@@ -138,9 +155,14 @@ fun Index(
                 MealDetailScreen(
                     viewModel = viewModel,
                     navController = navController,
-                    onPlayTheGameClicked = { mealUrl ->
+                    onStepByStepClicked = { mealUrl ->
                         onPlayTheGameClicked(mealUrl)
                     }
+                )
+            }
+            composable(route = "MealDetailStepByStepOverlay") {
+                Overlay(
+                    navController = navController
                 )
             }
             composable(
