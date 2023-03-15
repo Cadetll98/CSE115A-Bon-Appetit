@@ -17,7 +17,9 @@ package com.cookingapp.presentation.activity
 // case it is the Application() class that we have created
 // Under the hood hilt will generate an individual hilt component for each Android class in our
 // project
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -29,6 +31,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
+import com.cookingapp.LoginUI
 import com.cookingapp.presentation.screen.base.Index
 import com.cookingapp.presentation.screen.base.Screen
 import com.cookingapp.presentation.theme.CookingAppTheme
@@ -109,7 +112,13 @@ class MainActivity : ComponentActivity() {
                             scaffoldState.drawerState.close()
                             navController.navigate(route = path)
                         }
-                    }
+                    },
+                    onLogoutClick = {
+                        Toast.makeText(baseContext,"You are logout", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(baseContext, LoginUI::class.java)
+                        intent.putExtra("NeedLogout", true)
+                        this.startActivity(intent)
+                    },
                 )
             }
         }
