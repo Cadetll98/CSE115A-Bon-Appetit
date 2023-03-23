@@ -10,9 +10,9 @@ import com.cookingapp.R
 fun Platform(text: String) {
 
     val resource = if (text.contains("fiveStars", ignoreCase = true)) {
-        R.drawable.ic_circle_info_solid
+        R.drawable.ic_ratingstars
     } else {
-        R.drawable.ic_circle_info_solid
+        R.drawable.ic_ratingstars
     }
 
     Icon(
