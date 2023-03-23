@@ -76,7 +76,9 @@ class LoginUI : AppCompatActivity() {
                     startActivity(intent)
                 } else {
                     Log.w("Login", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Authentication failed. Signing you up ...", Toast.LENGTH_SHORT).show()
+                    createAccount(email, password)
+                    finish()
                 }
             }
     }
