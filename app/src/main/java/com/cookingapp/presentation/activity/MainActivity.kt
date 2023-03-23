@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.cookingapp.LoginUI
+import com.cookingapp.TimerUI
 import com.cookingapp.presentation.screen.base.Index
 import com.cookingapp.presentation.screen.base.Screen
 import com.cookingapp.presentation.theme.CookingAppTheme
@@ -107,11 +108,8 @@ class MainActivity : ComponentActivity() {
                         }
                     },
                     onLatestMealsClick = {
-                        scope.launch {
-                            val path = "search?mode=$FILTER_MODE_KEY&filter=$LATEST_MEALS"
-                            scaffoldState.drawerState.close()
-                            navController.navigate(route = path)
-                        }
+                        val intent = Intent(baseContext, TimerUI::class.java)
+                        this.startActivity(intent)
                     },
                     onLogoutClick = {
                         Toast.makeText(baseContext,"You are logout", Toast.LENGTH_SHORT).show()

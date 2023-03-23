@@ -3,7 +3,7 @@
     <string name="lbl_home">All meals</string>
     <string name="lbl_greek_food">Greek Food</string>
     <string name="lbl_italian_food">Italian Food</string>
-    <string name="lbl_latest_meals">Latest meals</string>
+    <string name="lbl_latest_meals">Timer</string>
     <string name="wrn_no_meals">Oops…! it seems that there is no meals for the moment please try again</string>
     <string name="lbl_about">About</string>
     <string name="lbl_detail">detail</string>
@@ -21,4 +21,13 @@
     <string name="title_activity_step_by_step_overlay">StepByStepOverlay</string>
     <string name="lbl_logout">Log out</string>
     <string name="txt_empty_result">Oops…! we couldn\'t find the recipe</string>
+    <string name="title_activity_timer">TimerActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
